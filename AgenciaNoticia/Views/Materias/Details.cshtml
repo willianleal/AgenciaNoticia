@@ -1,0 +1,90 @@
+﻿@model AgenciaNoticias.Models.Materia
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Materia</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.codPessoa_Jornalista)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codPessoa_Jornalista)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.codPessoa_Revisor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codPessoa_Revisor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.codPessoa_Publicador)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codPessoa_Publicador)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.materia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.materia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.materiaRevisada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.materiaRevisada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.codSessao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codSessao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dataCadastro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dataCadastro)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.codMateria }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

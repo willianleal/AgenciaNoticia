@@ -1,0 +1,42 @@
+﻿@model AgenciaNoticias.Models.Secao
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Secao</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.secao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.secao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.codPessoa_Gerente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codPessoa_Gerente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dataCadastro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dataCadastro)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.codSecao }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

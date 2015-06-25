@@ -1,0 +1,45 @@
+﻿@model IEnumerable<AgenciaNoticias.Models.Secao>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.secao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.codPessoa_Gerente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dataCadastro)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.secao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.codPessoa_Gerente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dataCadastro)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.codSecao }) |
+            @Html.ActionLink("Details", "Details", new { id=item.codSecao }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.codSecao })
+        </td>
+    </tr>
+}
+
+</table>
