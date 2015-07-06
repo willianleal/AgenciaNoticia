@@ -7,17 +7,38 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AgenciaNoticias.Models
 {
+    [Table("Comentario")]
     public class Comentario
     {
         [Key]
         [Column(Order = 0)]
         public int codMateria { get; set; }
+
+        [ForeignKey("codMateria")]
+        public virtual Materia Materia { get; set; }
+        
         [Key]
         [Column(Order = 1)]
         public int codComentario { get; set; }
+
+        [Required, Column(Order = 2)]
         public int codPessoa { get; set; }
+
+        //asdfasdfasdf
+
+        [ForeignKey("codPessoa")]
+        public virtual Pessoa Pessoa { get; set; }
+
+        [Required(ErrorMessage = "Digite o título."), Column(Order = 3)]
+        [MinLength(5, ErrorMessage = "O tamanho mínimo do título são 5 caracteres.")]
+        [StringLength(100, ErrorMessage = "O tamanho máximo do título são 100 caracteres.")]
         public string titulo { get; set; }
+
+        [Required(ErrorMessage = "Digite o comentário."), Column(Order = 4)]
+        [MinLength(20, ErrorMessage = "O tamanho mínimo do comentário são 20 caracteres.")]
         public string comentario { get; set; }
+
+        [Required, Column(Order = 5)]
         public DateTime dataCadastro { get; set; }
     }
 }

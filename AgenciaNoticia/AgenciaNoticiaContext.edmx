@@ -1,0 +1,443 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Edmx Version="3.0" xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <Runtime>
+    <ConceptualModels>
+      <Schema Namespace="AgenciaNoticia.Models" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Comentario" customannotation:ClrType="AgenciaNoticias.Models.Comentario, AgenciaNoticia, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <Key>
+            <PropertyRef Name="codMateria" />
+            <PropertyRef Name="codComentario" />
+          </Key>
+          <Property Name="codMateria" Type="Int32" Nullable="false" />
+          <Property Name="codComentario" Type="Int32" Nullable="false" />
+          <Property Name="codPessoa" Type="Int32" Nullable="false" />
+          <Property Name="titulo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="comentario" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="dataCadastro" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Pessoa" Relationship="Self.Comentario_Pessoa" FromRole="Comentario_Pessoa_Source" ToRole="Comentario_Pessoa_Target" />
+          <NavigationProperty Name="Materias" Relationship="AgenciaNoticia.Models.ComentarioMateria" FromRole="Comentario" ToRole="Materia" />
+        </EntityType>
+        <EntityType Name="Pessoa" customannotation:ClrType="AgenciaNoticias.Models.Pessoa, AgenciaNoticia, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <Key>
+            <PropertyRef Name="codPessoa" />
+          </Key>
+          <Property Name="codPessoa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="funcao" Type="Int32" Nullable="false" />
+          <Property Name="ddd" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="telefone" Type="String" MaxLength="9" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ativo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="dataCadastro" Type="DateTime" Nullable="false" />
+          <Property Name="senha" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Materia" customannotation:ClrType="AgenciaNoticias.Models.Materia, AgenciaNoticia, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <Key>
+            <PropertyRef Name="codMateria" />
+          </Key>
+          <Property Name="codMateria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codPessoa_Jornalista" Type="Int32" Nullable="false" />
+          <Property Name="codPessoa_Revisor" Type="Int32" Nullable="false" />
+          <Property Name="codPessoa_Publicador" Type="Int32" Nullable="false" />
+          <Property Name="nome" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="materia" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="codSessao" Type="Int32" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="dataCadastro" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Jornalista" Relationship="Self.Materia_Jornalista" FromRole="Materia_Jornalista_Source" ToRole="Materia_Jornalista_Target" />
+          <NavigationProperty Name="Publicador" Relationship="Self.Materia_Publicador" FromRole="Materia_Publicador_Source" ToRole="Materia_Publicador_Target" />
+          <NavigationProperty Name="Revisor" Relationship="Self.Materia_Revisor" FromRole="Materia_Revisor_Source" ToRole="Materia_Revisor_Target" />
+          <NavigationProperty Name="Secao" Relationship="Self.Materia_Secao" FromRole="Materia_Secao_Source" ToRole="Materia_Secao_Target" />
+          <NavigationProperty Name="Comentario" Relationship="AgenciaNoticia.Models.ComentarioMateria" FromRole="Materia" ToRole="Comentario" />
+        </EntityType>
+        <EntityType Name="Secao" customannotation:ClrType="AgenciaNoticias.Models.Secao, AgenciaNoticia, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <Key>
+            <PropertyRef Name="codSecao" />
+          </Key>
+          <Property Name="codSecao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="secao" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="codPessoa_Gerente" Type="Int32" Nullable="false" />
+          <Property Name="dataCadastro" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Pessoa" Relationship="Self.Secao_Pessoa" FromRole="Secao_Pessoa_Source" ToRole="Secao_Pessoa_Target" />
+        </EntityType>
+        <Association Name="Comentario_Pessoa">
+          <End Role="Comentario_Pessoa_Source" Type="Self.Comentario" Multiplicity="*" />
+          <End Role="Comentario_Pessoa_Target" Type="Self.Pessoa" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <ReferentialConstraint>
+            <Principal Role="Comentario_Pessoa_Target">
+              <PropertyRef Name="codPessoa" />
+            </Principal>
+            <Dependent Role="Comentario_Pessoa_Source">
+              <PropertyRef Name="codPessoa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Materia_Jornalista">
+          <End Role="Materia_Jornalista_Source" Type="Self.Materia" Multiplicity="*" />
+          <End Role="Materia_Jornalista_Target" Type="Self.Pessoa" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <ReferentialConstraint>
+            <Principal Role="Materia_Jornalista_Target">
+              <PropertyRef Name="codPessoa" />
+            </Principal>
+            <Dependent Role="Materia_Jornalista_Source">
+              <PropertyRef Name="codPessoa_Jornalista" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Materia_Publicador">
+          <End Role="Materia_Publicador_Source" Type="Self.Materia" Multiplicity="*" />
+          <End Role="Materia_Publicador_Target" Type="Self.Pessoa" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <ReferentialConstraint>
+            <Principal Role="Materia_Publicador_Target">
+              <PropertyRef Name="codPessoa" />
+            </Principal>
+            <Dependent Role="Materia_Publicador_Source">
+              <PropertyRef Name="codPessoa_Publicador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Materia_Revisor">
+          <End Role="Materia_Revisor_Source" Type="Self.Materia" Multiplicity="*" />
+          <End Role="Materia_Revisor_Target" Type="Self.Pessoa" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <ReferentialConstraint>
+            <Principal Role="Materia_Revisor_Target">
+              <PropertyRef Name="codPessoa" />
+            </Principal>
+            <Dependent Role="Materia_Revisor_Source">
+              <PropertyRef Name="codPessoa_Revisor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Secao_Pessoa">
+          <End Role="Secao_Pessoa_Source" Type="Self.Secao" Multiplicity="*" />
+          <End Role="Secao_Pessoa_Target" Type="Self.Pessoa" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <ReferentialConstraint>
+            <Principal Role="Secao_Pessoa_Target">
+              <PropertyRef Name="codPessoa" />
+            </Principal>
+            <Dependent Role="Secao_Pessoa_Source">
+              <PropertyRef Name="codPessoa_Gerente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Materia_Secao">
+          <End Role="Materia_Secao_Source" Type="Self.Materia" Multiplicity="*" />
+          <End Role="Materia_Secao_Target" Type="Self.Secao" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <ReferentialConstraint>
+            <Principal Role="Materia_Secao_Target">
+              <PropertyRef Name="codSecao" />
+            </Principal>
+            <Dependent Role="Materia_Secao_Source">
+              <PropertyRef Name="codSessao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AgenciaNoticiaContext" customannotation:UseClrTypes="true">
+          <EntitySet Name="Comentarios" EntityType="Self.Comentario" />
+          <EntitySet Name="Pessoas" EntityType="Self.Pessoa" />
+          <EntitySet Name="Materias" EntityType="Self.Materia" />
+          <EntitySet Name="Secaos" EntityType="Self.Secao" />
+          <AssociationSet Name="Comentario_Pessoa" Association="Self.Comentario_Pessoa">
+            <End Role="Comentario_Pessoa_Source" EntitySet="Comentarios" />
+            <End Role="Comentario_Pessoa_Target" EntitySet="Pessoas" />
+          </AssociationSet>
+          <AssociationSet Name="Materia_Jornalista" Association="Self.Materia_Jornalista">
+            <End Role="Materia_Jornalista_Source" EntitySet="Materias" />
+            <End Role="Materia_Jornalista_Target" EntitySet="Pessoas" />
+          </AssociationSet>
+          <AssociationSet Name="Materia_Publicador" Association="Self.Materia_Publicador">
+            <End Role="Materia_Publicador_Source" EntitySet="Materias" />
+            <End Role="Materia_Publicador_Target" EntitySet="Pessoas" />
+          </AssociationSet>
+          <AssociationSet Name="Materia_Revisor" Association="Self.Materia_Revisor">
+            <End Role="Materia_Revisor_Source" EntitySet="Materias" />
+            <End Role="Materia_Revisor_Target" EntitySet="Pessoas" />
+          </AssociationSet>
+          <AssociationSet Name="Secao_Pessoa" Association="Self.Secao_Pessoa">
+            <End Role="Secao_Pessoa_Source" EntitySet="Secaos" />
+            <End Role="Secao_Pessoa_Target" EntitySet="Pessoas" />
+          </AssociationSet>
+          <AssociationSet Name="Materia_Secao" Association="Self.Materia_Secao">
+            <End Role="Materia_Secao_Source" EntitySet="Materias" />
+            <End Role="Materia_Secao_Target" EntitySet="Secaos" />
+          </AssociationSet>
+          <AssociationSet Name="ComentarioMateria" Association="AgenciaNoticia.Models.ComentarioMateria">
+            <End Role="Comentario" EntitySet="Comentarios" />
+            <End Role="Materia" EntitySet="Materias" />
+          </AssociationSet>
+        </EntityContainer>
+        <Association Name="ComentarioMateria">
+          <End Type="AgenciaNoticia.Models.Comentario" Role="Comentario" Multiplicity="*" />
+          <End Type="AgenciaNoticia.Models.Materia" Role="Materia" Multiplicity="1" />
+        </Association>
+      </Schema>
+    </ConceptualModels>
+    <Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CodeFirstDatabase" CdmEntityContainer="AgenciaNoticiaContext">
+          <EntitySetMapping Name="Comentarios">
+            <EntityTypeMapping TypeName="AgenciaNoticia.Models.Comentario">
+              <MappingFragment StoreEntitySet="Comentario">
+                <ScalarProperty Name="codMateria" ColumnName="codMateria" />
+                <ScalarProperty Name="codComentario" ColumnName="codComentario" />
+                <ScalarProperty Name="codPessoa" ColumnName="codPessoa" />
+                <ScalarProperty Name="titulo" ColumnName="titulo" />
+                <ScalarProperty Name="comentario" ColumnName="comentario" />
+                <ScalarProperty Name="dataCadastro" ColumnName="dataCadastro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pessoas">
+            <EntityTypeMapping TypeName="AgenciaNoticia.Models.Pessoa">
+              <MappingFragment StoreEntitySet="Pessoa">
+                <ScalarProperty Name="codPessoa" ColumnName="codPessoa" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="funcao" ColumnName="funcao" />
+                <ScalarProperty Name="ddd" ColumnName="ddd" />
+                <ScalarProperty Name="telefone" ColumnName="telefone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="ativo" ColumnName="ativo" />
+                <ScalarProperty Name="dataCadastro" ColumnName="dataCadastro" />
+                <ScalarProperty Name="senha" ColumnName="senha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Materias">
+            <EntityTypeMapping TypeName="AgenciaNoticia.Models.Materia">
+              <MappingFragment StoreEntitySet="Materia">
+                <ScalarProperty Name="codMateria" ColumnName="codMateria" />
+                <ScalarProperty Name="codPessoa_Jornalista" ColumnName="codPessoa_Jornalista" />
+                <ScalarProperty Name="codPessoa_Revisor" ColumnName="codPessoa_Revisor" />
+                <ScalarProperty Name="codPessoa_Publicador" ColumnName="codPessoa_Publicador" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="materia" ColumnName="materia" />
+                <ScalarProperty Name="codSessao" ColumnName="codSessao" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="dataCadastro" ColumnName="dataCadastro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Secaos">
+            <EntityTypeMapping TypeName="AgenciaNoticia.Models.Secao">
+              <MappingFragment StoreEntitySet="Secao">
+                <ScalarProperty Name="codSecao" ColumnName="codSecao" />
+                <ScalarProperty Name="secao" ColumnName="secao" />
+                <ScalarProperty Name="codPessoa_Gerente" ColumnName="codPessoa_Gerente" />
+                <ScalarProperty Name="dataCadastro" ColumnName="dataCadastro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </Mappings>
+    <StorageModels>
+      <Schema Namespace="CodeFirstDatabaseSchema" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Comentario">
+          <Key>
+            <PropertyRef Name="codMateria" />
+            <PropertyRef Name="codComentario" />
+          </Key>
+          <Property Name="codMateria" Type="int" Nullable="false" />
+          <Property Name="codComentario" Type="int" Nullable="false" />
+          <Property Name="codPessoa" Type="int" customannotation:Index="{ Name: IX_codPessoa, Order: 0 }" Nullable="false" />
+          <Property Name="titulo" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="comentario" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="dataCadastro" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pessoa">
+          <Key>
+            <PropertyRef Name="codPessoa" />
+          </Key>
+          <Property Name="codPessoa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nome" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="funcao" Type="int" Nullable="false" />
+          <Property Name="ddd" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="telefone" Type="nvarchar" MaxLength="9" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ativo" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="dataCadastro" Type="datetime" Nullable="false" />
+          <Property Name="senha" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Materia">
+          <Key>
+            <PropertyRef Name="codMateria" />
+          </Key>
+          <Property Name="codMateria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codPessoa_Jornalista" Type="int" customannotation:Index="{ Name: IX_codPessoa_Jornalista, Order: 0 }" Nullable="false" />
+          <Property Name="codPessoa_Revisor" Type="int" customannotation:Index="{ Name: IX_codPessoa_Revisor, Order: 0 }" Nullable="false" />
+          <Property Name="codPessoa_Publicador" Type="int" customannotation:Index="{ Name: IX_codPessoa_Publicador, Order: 0 }" Nullable="false" />
+          <Property Name="nome" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="materia" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="codSessao" Type="int" customannotation:Index="{ Name: IX_codSessao, Order: 0 }" Nullable="false" />
+          <Property Name="status" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="dataCadastro" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Secao">
+          <Key>
+            <PropertyRef Name="codSecao" />
+          </Key>
+          <Property Name="codSecao" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="secao" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="codPessoa_Gerente" Type="int" customannotation:Index="{ Name: IX_codPessoa_Gerente, Order: 0 }" Nullable="false" />
+          <Property Name="dataCadastro" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="Comentario_Pessoa">
+          <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Comentario" Type="Self.Comentario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pessoa">
+              <PropertyRef Name="codPessoa" />
+            </Principal>
+            <Dependent Role="Comentario">
+              <PropertyRef Name="codPessoa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Materia_Jornalista">
+          <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Materia" Type="Self.Materia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pessoa">
+              <PropertyRef Name="codPessoa" />
+            </Principal>
+            <Dependent Role="Materia">
+              <PropertyRef Name="codPessoa_Jornalista" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Materia_Publicador">
+          <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Materia" Type="Self.Materia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pessoa">
+              <PropertyRef Name="codPessoa" />
+            </Principal>
+            <Dependent Role="Materia">
+              <PropertyRef Name="codPessoa_Publicador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Materia_Revisor">
+          <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Materia" Type="Self.Materia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pessoa">
+              <PropertyRef Name="codPessoa" />
+            </Principal>
+            <Dependent Role="Materia">
+              <PropertyRef Name="codPessoa_Revisor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Secao_Pessoa">
+          <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Secao" Type="Self.Secao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pessoa">
+              <PropertyRef Name="codPessoa" />
+            </Principal>
+            <Dependent Role="Secao">
+              <PropertyRef Name="codPessoa_Gerente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Materia_Secao">
+          <End Role="Secao" Type="Self.Secao" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Materia" Type="Self.Materia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Secao">
+              <PropertyRef Name="codSecao" />
+            </Principal>
+            <Dependent Role="Materia">
+              <PropertyRef Name="codSessao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CodeFirstDatabase">
+          <EntitySet Name="Comentario" EntityType="Self.Comentario" Schema="dbo" Table="Comentario" />
+          <EntitySet Name="Pessoa" EntityType="Self.Pessoa" Schema="dbo" Table="Pessoa" />
+          <EntitySet Name="Materia" EntityType="Self.Materia" Schema="dbo" Table="Materia" />
+          <EntitySet Name="Secao" EntityType="Self.Secao" Schema="dbo" Table="Secao" />
+          <AssociationSet Name="Comentario_Pessoa" Association="Self.Comentario_Pessoa">
+            <End Role="Pessoa" EntitySet="Pessoa" />
+            <End Role="Comentario" EntitySet="Comentario" />
+          </AssociationSet>
+          <AssociationSet Name="Materia_Jornalista" Association="Self.Materia_Jornalista">
+            <End Role="Pessoa" EntitySet="Pessoa" />
+            <End Role="Materia" EntitySet="Materia" />
+          </AssociationSet>
+          <AssociationSet Name="Materia_Publicador" Association="Self.Materia_Publicador">
+            <End Role="Pessoa" EntitySet="Pessoa" />
+            <End Role="Materia" EntitySet="Materia" />
+          </AssociationSet>
+          <AssociationSet Name="Materia_Revisor" Association="Self.Materia_Revisor">
+            <End Role="Pessoa" EntitySet="Pessoa" />
+            <End Role="Materia" EntitySet="Materia" />
+          </AssociationSet>
+          <AssociationSet Name="Secao_Pessoa" Association="Self.Secao_Pessoa">
+            <End Role="Pessoa" EntitySet="Pessoa" />
+            <End Role="Secao" EntitySet="Secao" />
+          </AssociationSet>
+          <AssociationSet Name="Materia_Secao" Association="Self.Materia_Secao">
+            <End Role="Secao" EntitySet="Secao" />
+            <End Role="Materia" EntitySet="Materia" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </StorageModels>
+  </Runtime>
+  <Designer>
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="ProcessDependentTemplatesOnSave" Value="False" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <Diagrams >
+      <Diagram DiagramId="4775d0f31acb4cedb0c6a366ac182d9a" Name="Diagram1">
+        <EntityTypeShape EntityType="AgenciaNoticia.Models.Comentario" Width="1.5" PointX="3.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AgenciaNoticia.Models.Pessoa" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AgenciaNoticia.Models.Materia" Width="1.875" PointX="0.5" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AgenciaNoticia.Models.Secao" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <AssociationConnector Association="AgenciaNoticia.Models.Comentario_Pessoa" ManuallyRouted="false" />
+        <AssociationConnector Association="AgenciaNoticia.Models.Materia_Jornalista" ManuallyRouted="false" />
+        <AssociationConnector Association="AgenciaNoticia.Models.Materia_Publicador" ManuallyRouted="false" />
+        <AssociationConnector Association="AgenciaNoticia.Models.Materia_Revisor" ManuallyRouted="false" />
+        <AssociationConnector Association="AgenciaNoticia.Models.Secao_Pessoa" ManuallyRouted="false" />
+        <AssociationConnector Association="AgenciaNoticia.Models.Materia_Secao" ManuallyRouted="false" />
+        <AssociationConnector Association="AgenciaNoticia.Models.ComentarioMateria" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</Edmx>
