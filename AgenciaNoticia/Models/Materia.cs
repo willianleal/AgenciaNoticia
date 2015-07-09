@@ -52,5 +52,8 @@ namespace AgenciaNoticias.Models
 
         [Required, Column(Order = 8)]
         public DateTime dataCadastro { get; set; }
+
+        [Required, Column(Order = 9)]
+        public DateTime dataAtualizacao { get; set; }
     }
 }

@@ -174,6 +174,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201507060144194_InitialCreate.cs" />
+    <Compile Include="Migrations\201507060144194_InitialCreate.Designer.cs">
+      <DependentUpon>201507060144194_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507070005471_AddDataAtualizacaoToMateria.cs" />
+    <Compile Include="Migrations\201507070005471_AddDataAtualizacaoToMateria.Designer.cs">
+      <DependentUpon>201507070005471_AddDataAtualizacaoToMateria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507090026566_changeFieldFuncaoAndAtivo.cs" />
+    <Compile Include="Migrations\201507090026566_changeFieldFuncaoAndAtivo.Designer.cs">
+      <DependentUpon>201507090026566_changeFieldFuncaoAndAtivo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AgenciaNoticiaContext.cs" />
     <Compile Include="Models\Comentario.cs" />
     <Compile Include="Models\Materia.cs" />
@@ -183,6 +196,17 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201507060144194_InitialCreate.resx">
+      <DependentUpon>201507060144194_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507070005471_AddDataAtualizacaoToMateria.resx">
+      <DependentUpon>201507070005471_AddDataAtualizacaoToMateria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507090026566_changeFieldFuncaoAndAtivo.resx">
+      <DependentUpon>201507090026566_changeFieldFuncaoAndAtivo.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

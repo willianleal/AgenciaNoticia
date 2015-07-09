@@ -19,8 +19,8 @@ namespace AgenciaNoticias.Models
         [StringLength(50, ErrorMessage = "O tamanho máximo do nome são 50 caracteres.")]
         public string nome { get; set; }
 
-        [Required, Column(Order = 2)]
-        public int funcao { get; set; }
+        [Required(ErrorMessage = "Selecione a função."), Column(Order = 2)]
+        public string funcao { get; set; }
 
         [Required(ErrorMessage = "Digite o DDD."), Column(Order = 3)]
         [MinLength(2, ErrorMessage = "O tamanho mínimo do DDD são 2 caracteres.")]
@@ -38,7 +38,7 @@ namespace AgenciaNoticias.Models
         public string email { get; set; }
 
         [Required, Column(Order = 6)]
-        public string ativo { get; set; }
+        public bool ativo { get; set; }
 
         [Required, Column(Order = 7)]
         public DateTime dataCadastro { get; set; }

@@ -24,7 +24,9 @@ namespace AgenciaNoticias.Models
         [Required, Column(Order = 2)]
         public int codPessoa { get; set; }
 
-        //asdfasdfasdf
+        // [ DatabaseGenerated ( DatabaseGeneratedOption . None )]
+        // [ Column (" descricao_do_produto ", TypeName =" text ")]
+        // [ NotMapped ]
 
         [ForeignKey("codPessoa")]
         public virtual Pessoa Pessoa { get; set; }
