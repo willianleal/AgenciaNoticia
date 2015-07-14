@@ -7,7 +7,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Cadastrar", "Create")
 </p>
 <table class="table">
     <tr>
@@ -35,9 +35,9 @@
             @Html.DisplayFor(modelItem => item.dataCadastro)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.codSecao }) |
-            @Html.ActionLink("Details", "Details", new { id=item.codSecao }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.codSecao })
+            @Html.ActionLink("Editar", "Edit", new { id=item.codSecao }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.codSecao }) |
+            @Html.ActionLink("Deletar", "Delete", new { id=item.codSecao })
         </td>
     </tr>
 }
