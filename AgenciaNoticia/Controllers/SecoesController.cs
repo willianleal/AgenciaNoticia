@@ -18,7 +18,11 @@ namespace AgenciaNoticia.Controllers
         // GET: Secoes
         public ActionResult Index()
         {
-            return View(db.Secaos.ToList());
+            var secao = db.Secaos.Include(o => o.Pessoa);
+
+            return View(secao.ToList().OrderByDescending(o => o.codSecao));
+            
+            //return View(db.Secaos.ToList());
         }
 
         // GET: Secoes/Details/5
@@ -39,6 +43,7 @@ namespace AgenciaNoticia.Controllers
         // GET: Secoes/Create
         public ActionResult Create()
         {
+            ViewBag.codPessoa_Gerente = new SelectList(db.Pessoas, "codPessoa", "Nome");
             return View();
         }
 
@@ -55,6 +60,10 @@ namespace AgenciaNoticia.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
+            //int teste = 4;
+
+            ViewBag.codPessoa_Gerente = new SelectList(db.Pessoas, "codPessoa", "Nome", secao.codPessoa_Gerente);
 
             return View(secao);
         }

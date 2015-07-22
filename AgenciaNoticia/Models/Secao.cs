@@ -21,14 +21,14 @@ namespace AgenciaNoticias.Models
         public string secao { get; set; }
 
         [Display(Name = "Gerente")]
-        [Required, Column(Order = 2)]
+        [Required(ErrorMessage = "Selecione a pessoa."), Column(Order = 2)]
         public int codPessoa_Gerente { get; set; }
-
-        [ForeignKey("codPessoa_Gerente")]
-        public virtual Pessoa Pessoa { get; set; }
 
         [Display(Name = "Data Cadastro")]
         [Required, Column(Order = 3)]
         public DateTime dataCadastro { get; set; }
+
+        [ForeignKey("codPessoa_Gerente")]
+        public virtual Pessoa Pessoa { get; set; }
     }
-}
+} 

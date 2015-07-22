@@ -26,10 +26,24 @@
         <div class="form-group">
             @Html.LabelFor(model => model.codPessoa_Gerente, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.codPessoa_Gerente, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.codPessoa_Gerente, "", new { @class = "text-danger" })
+                @Html.DropDownList("codPessoa_Gerente", String.Empty)
+                @Html.ValidationMessageFor(model => model.codPessoa_Gerente)
+                @*@Html.DropDownListFor(model => model.codPessoa_Gerente, ViewBag.)*@
+                @*@Html.DropDownListFor(model => model.codPessoa_Gerente, db.MyOptions.Select(x => new SelectListItem 
+           { Text = x.Name, Value = x.Id.ToString() }))*@
             </div>
         </div>
+
+        @*<div class="editor - label ">
+            48 @Html . LabelFor ( model => model . SelecaoId )
+            49
+        </div>
+        50 <div class="editor - field ">
+            51 @Html . DropDownList (" SelecaoId ", String . Empty )
+            52 @Html . ValidationMessageFor ( model => model . SelecaoId )
+            53
+        </div>*@
+
 
         @Html.HiddenFor(model => model.dataCadastro, new { Value = DateTime.Now })
 

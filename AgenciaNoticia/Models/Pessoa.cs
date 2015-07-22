@@ -56,8 +56,6 @@ namespace AgenciaNoticias.Models
         [StringLength(50, ErrorMessage = "O tamanho máximo da senha são 50 caracteres.")]
         public string senha { get; set; }
 
-        //public virtual IQueryable<Secao> Secoes { get; set; }
-
-        //public virtual IQueryable<Comentario> Comentarios { get; set; }
+        public virtual List<Secao> Secoes { get; set; }
     }
 }
