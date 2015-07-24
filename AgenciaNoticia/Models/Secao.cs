@@ -18,7 +18,7 @@ namespace AgenciaNoticias.Models
         [Required(ErrorMessage = "Digite o nome da seção."), Column(Order = 1)]
         [MinLength(4, ErrorMessage = "O tamanho mínimo da seção são 4 caracteres.")]
         [StringLength(50, ErrorMessage = "O tamanho máximo da seção são 50 caracteres.")]
-        public string secao { get; set; }
+        public string nome { get; set; }
 
         [Display(Name = "Gerente")]
         [Required(ErrorMessage = "Selecione a pessoa."), Column(Order = 2)]
@@ -26,6 +26,8 @@ namespace AgenciaNoticias.Models
 
         [Display(Name = "Data Cadastro")]
         [Required, Column(Order = 3)]
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy HH:mm:ss}")]
         public DateTime dataCadastro { get; set; }
 
         [ForeignKey("codPessoa_Gerente")]
