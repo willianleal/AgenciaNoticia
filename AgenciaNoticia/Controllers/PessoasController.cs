@@ -49,6 +49,8 @@ namespace AgenciaNoticia.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "codPessoa,nome,funcao,ddd,telefone,email,ativo,dataCadastro,senha")] Pessoa pessoa)
         {
+            //ModelState.AddModelError(pessoa.GetRuleViolations());
+
             if (ModelState.IsValid)
             {
                 db.Pessoas.Add(pessoa);

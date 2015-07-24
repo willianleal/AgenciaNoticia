@@ -109,15 +109,15 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\web.config" />
-    <Content Include="Views\Secoes\Create.cshtml" />
-    <Content Include="Views\Secoes\Delete.cshtml" />
-    <Content Include="Views\Secoes\Details.cshtml" />
-    <Content Include="Views\Secoes\Edit.cshtml" />
-    <Content Include="Views\Secoes\Index.cshtml" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Secaos\Create.cshtml" />
+    <Content Include="Views\Secaos\Delete.cshtml" />
+    <Content Include="Views\Secaos\Details.cshtml" />
+    <Content Include="Views\Secaos\Edit.cshtml" />
+    <Content Include="Views\Secaos\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -170,53 +170,21 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MateriasController.cs" />
     <Compile Include="Controllers\PessoasController.cs" />
-    <Compile Include="Controllers\SecoesController.cs" />
+    <Compile Include="Controllers\SecaosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201507060144194_InitialCreate.cs" />
-    <Compile Include="Migrations\201507060144194_InitialCreate.Designer.cs">
-      <DependentUpon>201507060144194_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201507240200274_AlteracaoCampoDataCadastroPessoa.cs" />
+    <Compile Include="Migrations\201507240200274_AlteracaoCampoDataCadastroPessoa.Designer.cs">
+      <DependentUpon>201507240200274_AlteracaoCampoDataCadastroPessoa.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201507070005471_AddDataAtualizacaoToMateria.cs" />
-    <Compile Include="Migrations\201507070005471_AddDataAtualizacaoToMateria.Designer.cs">
-      <DependentUpon>201507070005471_AddDataAtualizacaoToMateria.cs</DependentUpon>
+    <Compile Include="Migrations\201507240231295_AlteracaoSecaoNomeSecao.cs" />
+    <Compile Include="Migrations\201507240231295_AlteracaoSecaoNomeSecao.Designer.cs">
+      <DependentUpon>201507240231295_AlteracaoSecaoNomeSecao.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201507090026566_changeFieldFuncaoAndAtivo.cs" />
-    <Compile Include="Migrations\201507090026566_changeFieldFuncaoAndAtivo.Designer.cs">
-      <DependentUpon>201507090026566_changeFieldFuncaoAndAtivo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201507160257021_AlteracaoClasseSecao.cs" />
-    <Compile Include="Migrations\201507160257021_AlteracaoClasseSecao.Designer.cs">
-      <DependentUpon>201507160257021_AlteracaoClasseSecao.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201507160328104_AlteracaoClasseSecao2.cs" />
-    <Compile Include="Migrations\201507160328104_AlteracaoClasseSecao2.Designer.cs">
-      <DependentUpon>201507160328104_AlteracaoClasseSecao2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201507201550468_alteracao.cs" />
-    <Compile Include="Migrations\201507201550468_alteracao.Designer.cs">
-      <DependentUpon>201507201550468_alteracao.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201507201605081_alteracao2.cs" />
-    <Compile Include="Migrations\201507201605081_alteracao2.Designer.cs">
-      <DependentUpon>201507201605081_alteracao2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201507201609398_voltaalteracao1e2.cs" />
-    <Compile Include="Migrations\201507201609398_voltaalteracao1e2.Designer.cs">
-      <DependentUpon>201507201609398_voltaalteracao1e2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201507201613090_voltaalteracao1e21.cs" />
-    <Compile Include="Migrations\201507201613090_voltaalteracao1e21.Designer.cs">
-      <DependentUpon>201507201613090_voltaalteracao1e21.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201507201616369_alteracao1.cs" />
-    <Compile Include="Migrations\201507201616369_alteracao1.Designer.cs">
-      <DependentUpon>201507201616369_alteracao1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201507201619021_alteracaoNova.cs" />
-    <Compile Include="Migrations\201507201619021_alteracaoNova.Designer.cs">
-      <DependentUpon>201507201619021_alteracaoNova.cs</DependentUpon>
+    <Compile Include="Migrations\201507240233540_AlteracaoSecaoNomeSecao2.cs" />
+    <Compile Include="Migrations\201507240233540_AlteracaoSecaoNomeSecao2.Designer.cs">
+      <DependentUpon>201507240233540_AlteracaoSecaoNomeSecao2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AgenciaNoticiaContext.cs" />
@@ -230,38 +198,14 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201507060144194_InitialCreate.resx">
-      <DependentUpon>201507060144194_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201507240200274_AlteracaoCampoDataCadastroPessoa.resx">
+      <DependentUpon>201507240200274_AlteracaoCampoDataCadastroPessoa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201507070005471_AddDataAtualizacaoToMateria.resx">
-      <DependentUpon>201507070005471_AddDataAtualizacaoToMateria.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201507240231295_AlteracaoSecaoNomeSecao.resx">
+      <DependentUpon>201507240231295_AlteracaoSecaoNomeSecao.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201507090026566_changeFieldFuncaoAndAtivo.resx">
-      <DependentUpon>201507090026566_changeFieldFuncaoAndAtivo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201507160257021_AlteracaoClasseSecao.resx">
-      <DependentUpon>201507160257021_AlteracaoClasseSecao.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201507160328104_AlteracaoClasseSecao2.resx">
-      <DependentUpon>201507160328104_AlteracaoClasseSecao2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201507201550468_alteracao.resx">
-      <DependentUpon>201507201550468_alteracao.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201507201605081_alteracao2.resx">
-      <DependentUpon>201507201605081_alteracao2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201507201609398_voltaalteracao1e2.resx">
-      <DependentUpon>201507201609398_voltaalteracao1e2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201507201613090_voltaalteracao1e21.resx">
-      <DependentUpon>201507201613090_voltaalteracao1e21.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201507201616369_alteracao1.resx">
-      <DependentUpon>201507201616369_alteracao1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201507201619021_alteracaoNova.resx">
-      <DependentUpon>201507201619021_alteracaoNova.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201507240233540_AlteracaoSecaoNomeSecao2.resx">
+      <DependentUpon>201507240233540_AlteracaoSecaoNomeSecao2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -7,13 +7,13 @@ namespace AgenciaNoticia.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.1-30610")]
-    public sealed partial class alteracao : IMigrationMetadata
+    public sealed partial class AlteracaoCampoDataCadastroPessoa : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(alteracao));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AlteracaoCampoDataCadastroPessoa));
         
         string IMigrationMetadata.Id
         {
-            get { return "201507201550468_alteracao"; }
+            get { return "201507240200274_AlteracaoCampoDataCadastroPessoa"; }
         }
         
         string IMigrationMetadata.Source

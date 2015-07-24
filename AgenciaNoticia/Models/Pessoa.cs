@@ -48,6 +48,8 @@ namespace AgenciaNoticias.Models
 
         [Display(Name = "Data Cadastro")]
         [Required, Column(Order = 7)]
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy HH:mm:ss}")]
         public DateTime dataCadastro { get; set; }
 
         [Display(Name = "Senha")]
