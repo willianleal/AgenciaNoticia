@@ -12,25 +12,22 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.codPessoa_Jornalista)
+            @Html.DisplayNameFor(model => model.Jornalista.nome)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.codPessoa_Revisor)
+            @Html.DisplayNameFor(model => model.Publicador.nome)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.codPessoa_Publicador)
+            @Html.DisplayNameFor(model => model.Revisor.nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Secao.nome)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.nome)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.materia)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.materiaRevisada)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.codSessao)
+            @Html.DisplayNameFor(model => model.materiaEscrita)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.status)
@@ -38,37 +35,40 @@
         <th>
             @Html.DisplayNameFor(model => model.dataCadastro)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dataAtualizacao)
+        </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.codPessoa_Jornalista)
+            @Html.DisplayFor(modelItem => item.Jornalista.nome)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.codPessoa_Revisor)
+            @Html.DisplayFor(modelItem => item.Publicador.nome)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.codPessoa_Publicador)
+            @Html.DisplayFor(modelItem => item.Revisor.nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Secao.nome)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.nome)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.materia)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.materiaRevisada)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.codSessao)
+            @Html.DisplayFor(modelItem => item.materiaEscrita)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.status)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.dataCadastro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dataAtualizacao)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.codMateria }) |

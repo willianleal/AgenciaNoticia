@@ -11,27 +11,35 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.codPessoa_Jornalista)
+            @Html.DisplayNameFor(model => model.Jornalista.nome)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.codPessoa_Jornalista)
+            @Html.DisplayFor(model => model.Jornalista.nome)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.codPessoa_Revisor)
+            @Html.DisplayNameFor(model => model.Publicador.nome)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.codPessoa_Revisor)
+            @Html.DisplayFor(model => model.Publicador.nome)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.codPessoa_Publicador)
+            @Html.DisplayNameFor(model => model.Revisor.nome)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.codPessoa_Publicador)
+            @Html.DisplayFor(model => model.Revisor.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Secao.nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Secao.nome)
         </dd>
 
         <dt>
@@ -43,27 +51,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.materia)
+            @Html.DisplayNameFor(model => model.materiaEscrita)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.materia)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.materiaRevisada)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.materiaRevisada)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.codSessao)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.codSessao)
+            @Html.DisplayFor(model => model.materiaEscrita)
         </dd>
 
         <dt>
@@ -80,6 +72,14 @@
 
         <dd>
             @Html.DisplayFor(model => model.dataCadastro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dataAtualizacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dataAtualizacao)
         </dd>
 
     </dl>

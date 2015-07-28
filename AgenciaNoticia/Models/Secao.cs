@@ -14,7 +14,7 @@ namespace AgenciaNoticias.Models
         [Column(Order = 0)]
         public int codSecao { get; set; }
 
-        [Display(Name = "Seção")]
+        [Display(Name = "Nome")]
         [Required(ErrorMessage = "Digite o nome da seção."), Column(Order = 1)]
         [MinLength(4, ErrorMessage = "O tamanho mínimo da seção são 4 caracteres.")]
         [StringLength(50, ErrorMessage = "O tamanho máximo da seção são 50 caracteres.")]

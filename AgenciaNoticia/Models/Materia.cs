@@ -18,22 +18,13 @@ namespace AgenciaNoticias.Models
         [Required, Column(Order = 1)]
         public int codPessoa_Jornalista { get; set; }
 
-        [ForeignKey("codPessoa_Jornalista")]
-        public virtual Pessoa Jornalista { get; set; }
-
         [Display(Name = "Revisor")]
         [Column(Order = 2)]
         public int codPessoa_Revisor { get; set; }
 
-        [ForeignKey("codPessoa_Revisor")]
-        public virtual Pessoa Revisor { get; set; }
-
         [Display(Name = "Publicador")]
         [Column(Order = 3)]
         public int codPessoa_Publicador { get; set; }
-
-        [ForeignKey("codPessoa_Publicador")]
-        public virtual Pessoa Publicador { get; set; }
 
         [Display(Name = "Título")]
         [Required(ErrorMessage = "Digite o título da matéria."), Column(Order = 4)]
@@ -43,15 +34,12 @@ namespace AgenciaNoticias.Models
 
         [Display(Name = "Matéria")]
         [Required(ErrorMessage = "Digite a matéria."), Column(Order = 5)]
-        [MinLength(200, ErrorMessage = "O tamanho mínimo da matéria são 200 caracteres.")]
-        public string materia { get; set; }
+        [MinLength(20, ErrorMessage = "O tamanho mínimo da matéria são 20 caracteres.")]
+        public string materiaEscrita { get; set; }
 
         [Display(Name = "Seção")]
-        [Required, Column(Order = 6)]
-        public int codSessao { get; set; }
-
-        [ForeignKey("codSessao")]
-        public virtual Secao Secao { get; set; }
+        [Required(ErrorMessage = "Selecione a Seção."), Column(Order = 6)]
+        public int codSecao { get; set; }
 
         [Display(Name = "Status")]
         [Required, Column(Order = 7)]
@@ -64,5 +52,17 @@ namespace AgenciaNoticias.Models
         [Display(Name = "Data Atualização")]
         [Required, Column(Order = 9)]
         public DateTime dataAtualizacao { get; set; }
+
+        [ForeignKey("codPessoa_Jornalista")]
+        public virtual Pessoa Jornalista { get; set; }
+
+        [ForeignKey("codPessoa_Revisor")]
+        public virtual Pessoa Revisor { get; set; }
+
+        [ForeignKey("codPessoa_Publicador")]
+        public virtual Pessoa Publicador { get; set; }
+
+        [ForeignKey("codSecao")]
+        public virtual Secao Secao { get; set; }
     }
 }

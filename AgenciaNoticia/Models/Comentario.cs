@@ -12,15 +12,12 @@ namespace AgenciaNoticias.Models
     {
         [Key]
         [Column(Order = 0)]
-        public int codMateria { get; set; }
-
-        [ForeignKey("codMateria")]
-        public virtual Materia Materia { get; set; }
+        public int codComentario { get; set; }
         
         [Key]
         [Column(Order = 1)]
-        public int codComentario { get; set; }
-
+        public int codMateria { get; set; }
+        
         [Display(Name = "Pessoa")]
         [Required, Column(Order = 2)]
         public int codPessoa { get; set; }
@@ -28,9 +25,6 @@ namespace AgenciaNoticias.Models
         // [ DatabaseGenerated ( DatabaseGeneratedOption . None )]
         // [ Column (" descricao_do_produto ", TypeName =" text ")]
         // [ NotMapped ]
-
-        [ForeignKey("codPessoa")]
-        public virtual Pessoa Pessoa { get; set; }
 
         [Display(Name = "Título")]
         [Required(ErrorMessage = "Digite o título."), Column(Order = 3)]
@@ -46,5 +40,11 @@ namespace AgenciaNoticias.Models
         [Display(Name = "Data Cadastro")]
         [Required, Column(Order = 5)]
         public DateTime dataCadastro { get; set; }
+
+        [ForeignKey("codMateria")]
+        public virtual Materia Materia { get; set; }
+
+        [ForeignKey("codPessoa")]
+        public virtual Pessoa Pessoa { get; set; }
     }
 }

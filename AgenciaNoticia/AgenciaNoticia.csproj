@@ -118,6 +118,11 @@
     <Content Include="Views\Secaos\Details.cshtml" />
     <Content Include="Views\Secaos\Edit.cshtml" />
     <Content Include="Views\Secaos\Index.cshtml" />
+    <Content Include="Views\Materias\Create.cshtml" />
+    <Content Include="Views\Materias\Delete.cshtml" />
+    <Content Include="Views\Materias\Details.cshtml" />
+    <Content Include="Views\Materias\Edit.cshtml" />
+    <Content Include="Views\Materias\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -146,11 +151,6 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Materias\Create.cshtml" />
-    <Content Include="Views\Materias\Delete.cshtml" />
-    <Content Include="Views\Materias\Details.cshtml" />
-    <Content Include="Views\Materias\Edit.cshtml" />
-    <Content Include="Views\Materias\Index.cshtml" />
     <Content Include="Views\Pessoas\Create.cshtml" />
     <Content Include="Views\Pessoas\Delete.cshtml" />
     <Content Include="Views\Pessoas\Details.cshtml" />
@@ -174,17 +174,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201507240200274_AlteracaoCampoDataCadastroPessoa.cs" />
-    <Compile Include="Migrations\201507240200274_AlteracaoCampoDataCadastroPessoa.Designer.cs">
-      <DependentUpon>201507240200274_AlteracaoCampoDataCadastroPessoa.cs</DependentUpon>
+    <Compile Include="Migrations\201507280113275_InitialCreate.cs" />
+    <Compile Include="Migrations\201507280113275_InitialCreate.Designer.cs">
+      <DependentUpon>201507280113275_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201507240231295_AlteracaoSecaoNomeSecao.cs" />
-    <Compile Include="Migrations\201507240231295_AlteracaoSecaoNomeSecao.Designer.cs">
-      <DependentUpon>201507240231295_AlteracaoSecaoNomeSecao.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201507240233540_AlteracaoSecaoNomeSecao2.cs" />
-    <Compile Include="Migrations\201507240233540_AlteracaoSecaoNomeSecao2.Designer.cs">
-      <DependentUpon>201507240233540_AlteracaoSecaoNomeSecao2.cs</DependentUpon>
+    <Compile Include="Migrations\201507280158311_MateriaToMateriaEscrita.cs" />
+    <Compile Include="Migrations\201507280158311_MateriaToMateriaEscrita.Designer.cs">
+      <DependentUpon>201507280158311_MateriaToMateriaEscrita.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AgenciaNoticiaContext.cs" />
@@ -198,14 +194,11 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201507240200274_AlteracaoCampoDataCadastroPessoa.resx">
-      <DependentUpon>201507240200274_AlteracaoCampoDataCadastroPessoa.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201507280113275_InitialCreate.resx">
+      <DependentUpon>201507280113275_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201507240231295_AlteracaoSecaoNomeSecao.resx">
-      <DependentUpon>201507240231295_AlteracaoSecaoNomeSecao.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201507240233540_AlteracaoSecaoNomeSecao2.resx">
-      <DependentUpon>201507240233540_AlteracaoSecaoNomeSecao2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201507280158311_MateriaToMateriaEscrita.resx">
+      <DependentUpon>201507280158311_MateriaToMateriaEscrita.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

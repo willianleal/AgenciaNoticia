@@ -18,7 +18,8 @@ namespace AgenciaNoticia.Controllers
         // GET: Materias
         public ActionResult Index()
         {
-            return View(db.Materias.ToList());
+            var materias = db.Materias.Include(m => m.Jornalista).Include(m => m.Publicador).Include(m => m.Revisor).Include(m => m.Secao);
+            return View(materias.ToList());
         }
 
         // GET: Materias/Details/5
@@ -39,6 +40,10 @@ namespace AgenciaNoticia.Controllers
         // GET: Materias/Create
         public ActionResult Create()
         {
+            ViewBag.codPessoa_Jornalista = new SelectList(db.Pessoas, "codPessoa", "nome");
+            ViewBag.codPessoa_Publicador = new SelectList(db.Pessoas, "codPessoa", "nome");
+            ViewBag.codPessoa_Revisor = new SelectList(db.Pessoas, "codPessoa", "nome");
+            ViewBag.codSecao = new SelectList(db.Secaos, "codSecao", "nome");
             return View();
         }
 
@@ -47,7 +52,7 @@ namespace AgenciaNoticia.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "codMateria,codPessoa_Jornalista,codPessoa_Revisor,codPessoa_Publicador,nome,materia,materiaRevisada,codSessao,status,dataCadastro")] Materia materia)
+        public ActionResult Create([Bind(Include = "codMateria,codPessoa_Jornalista,codPessoa_Revisor,codPessoa_Publicador,nome,materiaEscrita,codSecao,status,dataCadastro,dataAtualizacao")] Materia materia)
         {
             if (ModelState.IsValid)
             {
@@ -56,6 +61,10 @@ namespace AgenciaNoticia.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.codPessoa_Jornalista = new SelectList(db.Pessoas, "codPessoa", "nome", materia.codPessoa_Jornalista);
+            ViewBag.codPessoa_Publicador = new SelectList(db.Pessoas, "codPessoa", "nome", materia.codPessoa_Publicador);
+            ViewBag.codPessoa_Revisor = new SelectList(db.Pessoas, "codPessoa", "nome", materia.codPessoa_Revisor);
+            ViewBag.codSecao = new SelectList(db.Secaos, "codSecao", "nome", materia.codSecao);
             return View(materia);
         }
 
@@ -71,6 +80,10 @@ namespace AgenciaNoticia.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.codPessoa_Jornalista = new SelectList(db.Pessoas, "codPessoa", "nome", materia.codPessoa_Jornalista);
+            ViewBag.codPessoa_Publicador = new SelectList(db.Pessoas, "codPessoa", "nome", materia.codPessoa_Publicador);
+            ViewBag.codPessoa_Revisor = new SelectList(db.Pessoas, "codPessoa", "nome", materia.codPessoa_Revisor);
+            ViewBag.codSecao = new SelectList(db.Secaos, "codSecao", "nome", materia.codSecao);
             return View(materia);
         }
 
@@ -79,7 +92,7 @@ namespace AgenciaNoticia.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "codMateria,codPessoa_Jornalista,codPessoa_Revisor,codPessoa_Publicador,nome,materia,materiaRevisada,codSessao,status,dataCadastro")] Materia materia)
+        public ActionResult Edit([Bind(Include = "codMateria,codPessoa_Jornalista,codPessoa_Revisor,codPessoa_Publicador,nome,materiaEscrita,codSecao,status,dataCadastro,dataAtualizacao")] Materia materia)
         {
             if (ModelState.IsValid)
             {
@@ -87,6 +100,10 @@ namespace AgenciaNoticia.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.codPessoa_Jornalista = new SelectList(db.Pessoas, "codPessoa", "nome", materia.codPessoa_Jornalista);
+            ViewBag.codPessoa_Publicador = new SelectList(db.Pessoas, "codPessoa", "nome", materia.codPessoa_Publicador);
+            ViewBag.codPessoa_Revisor = new SelectList(db.Pessoas, "codPessoa", "nome", materia.codPessoa_Revisor);
+            ViewBag.codSecao = new SelectList(db.Secaos, "codSecao", "nome", materia.codSecao);
             return View(materia);
         }
 

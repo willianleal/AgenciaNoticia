@@ -25,9 +25,8 @@ C:\Users\William\Documents\GitHub\AgenciaNoticia\AgenciaNoticia\bin\System.Web.R
 C:\Users\William\Documents\GitHub\AgenciaNoticia\AgenciaNoticia\bin\System.Web.WebPages.xml
 C:\Users\William\Documents\GitHub\AgenciaNoticia\AgenciaNoticia\bin\System.Web.WebPages.Deployment.xml
 C:\Users\William\Documents\GitHub\AgenciaNoticia\AgenciaNoticia\bin\System.Web.WebPages.Razor.xml
-C:\Users\William\Documents\GitHub\AgenciaNoticia\AgenciaNoticia\obj\Debug\AgenciaNoticia.Migrations.AlteracaoCampoDataCadastroPessoa.resources
-C:\Users\William\Documents\GitHub\AgenciaNoticia\AgenciaNoticia\obj\Debug\AgenciaNoticia.Migrations.AlteracaoSecaoNomeSecao.resources
-C:\Users\William\Documents\GitHub\AgenciaNoticia\AgenciaNoticia\obj\Debug\AgenciaNoticia.Migrations.AlteracaoSecaoNomeSecao2.resources
+C:\Users\William\Documents\GitHub\AgenciaNoticia\AgenciaNoticia\obj\Debug\AgenciaNoticia.Migrations.InitialCreate.resources
+C:\Users\William\Documents\GitHub\AgenciaNoticia\AgenciaNoticia\obj\Debug\AgenciaNoticia.Migrations.MateriaToMateriaEscrita.resources
 C:\Users\William\Documents\GitHub\AgenciaNoticia\AgenciaNoticia\obj\Debug\AgenciaNoticia.csproj.GenerateResource.Cache
 C:\Users\William\Documents\GitHub\AgenciaNoticia\AgenciaNoticia\obj\Debug\AgenciaNoticia.dll
 C:\Users\William\Documents\GitHub\AgenciaNoticia\AgenciaNoticia\obj\Debug\AgenciaNoticia.pdb
