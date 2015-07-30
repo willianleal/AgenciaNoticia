@@ -4,24 +4,28 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Matérias</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Cadastrar", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Jornalista.nome)
+            Jornalista
+            @*@Html.DisplayNameFor(model => model.Jornalista.nome)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Publicador.nome)
+            Publicador
+            @*@Html.DisplayNameFor(model => model.Publicador.nome)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Revisor.nome)
+            Revisor
+            @*@Html.DisplayNameFor(model => model.Revisor.nome)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Secao.nome)
+            Seção
+            @*@Html.DisplayNameFor(model => model.Secao.nome)*@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.nome)
@@ -71,9 +75,9 @@
             @Html.DisplayFor(modelItem => item.dataAtualizacao)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.codMateria }) |
-            @Html.ActionLink("Details", "Details", new { id=item.codMateria }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.codMateria })
+            @Html.ActionLink("Editar", "Edit", new { id = item.codMateria }) |
+            @Html.ActionLink("Detalhes", "Details", new { id = item.codMateria }) |
+            @Html.ActionLink("Deletar", "Delete", new { id = item.codMateria })
         </td>
     </tr>
 }
